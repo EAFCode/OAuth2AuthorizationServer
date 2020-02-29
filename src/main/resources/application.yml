@@ -1,0 +1,76 @@
+api:
+  prefix: /api
+  version: v1
+  sendgrid:
+      key: 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
+      from: esaldinofonseca@gmail.com
+spring:
+  application:
+    name: ProWallet
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/walletTest?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Africa/Luanda&useLegacyDatetimeCode=false
+    username: root
+    password: ps
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: create_v2.sql
+---
+spring:
+  profiles: dev-cript
+  datasource:
+    url: jdbc:mysql://192.168.99.100:3306/walletTestEncript?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Africa/Luanda&useLegacyDatetimeCode=false
+    username: root
+    password: ps
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: create_v2.sql
+    show-sql: false
+---
+spring:
+  profiles: docker-sandBox | docker-prod
+  datasource:
+    url: jdbc:mysql://${host}:${port}/${database}?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Africa/Luanda&useLegacyDatetimeCode=false
+    username: ${user}
+    password: ${password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+---
+spring:
+  profiles: aws | docker-sandBox
+  datasource:
+    url: jdbc:mysql://bega-wallet-manager.coqobbx0dlpx.eu-west-3.rds.amazonaws.com:3306/walletbega?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Africa/Luanda&useLegacyDatetimeCode=false
+    username: admin2020walet
+    password: uhsfksd2342@#sdf
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
