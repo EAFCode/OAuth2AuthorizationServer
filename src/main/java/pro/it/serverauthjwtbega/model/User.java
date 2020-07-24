@@ -32,7 +32,6 @@ import pro.it.serverauthjwtbega.converter.StringConverter;
 @Getter
 @NoArgsConstructor
 @Entity
-@ToString(exclude = {"account","picture","cardSupervisors","avaliableDevolutions","avaliableOrderFinancials","fees"})
 public class User  implements UserDetails {
 
     @Id

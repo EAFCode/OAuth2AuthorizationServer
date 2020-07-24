@@ -16,7 +16,7 @@
         <h1>OAuth2 Provider</h1>
     </div>
     <h2>Create your application (client registration)</h2>
-    <form action="#" th:action="@{/oauth2/clients/save}"
+    <form action="#" th:action="@{/oauth2/save}"
           th:object="${registry}"
           method="post">
         <div class="form-group">
@@ -79,7 +79,7 @@
         <div class="form-group">
             <button class="btn btn-primary"
                     type="submit">Register</button>
-            <a th:href="@{/oauth2/clients/dashboard}" class="btn btn-default" type="button">Cancel</a>
+            <a th:href="@{/oauth2/dashboard}" class="btn btn-default" type="button">Cancel</a>
         </div>
     </form>
 </div>

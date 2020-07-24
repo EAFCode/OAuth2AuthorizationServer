@@ -25,7 +25,7 @@ import pro.it.serverauthjwtbega.model.User;
 import pro.it.serverauthjwtbega.service.ServiceEmail;
 
 @Controller
-@RequestMapping("/oauth2/clients")
+@RequestMapping("/oauth2")
 @Slf4j
 public class Oauth2ClientController {
 
@@ -54,7 +54,7 @@ public class Oauth2ClientController {
     public String save(@Valid BasicClientInfo clientDetails, Model model, BindingResult bindingResult)
             throws Exception {
         if (bindingResult.hasErrors()) {
-            return "redirect:/oauth2/clients/register";
+            return "redirect:/oauth2/register";
         }
 
         ClientAPP app = new ClientAPP();
@@ -87,14 +87,14 @@ public class Oauth2ClientController {
         clientRegistrationService.addClientDetails(app);
         model.addAttribute("applications", clientRegistrationService.listClientDetails());
 
-        return "redirect:/oauth2/clients/dashboard";
+        return "redirect:/oauth2/dashboard";
     }
 
     @GetMapping("/remove")
     public String remove(@RequestParam(value = "client_id", required = false) String clientId, Model model) {
         clientRegistrationService.removeClientDetails(clientId);
         model.addAttribute("applications", clientRegistrationService.listClientDetails());
-        return "redirect:/oauth2/clients/dashboard";
+        return "redirect:/oauth2/dashboard";
     }
 
     @GetMapping("/dashboard")

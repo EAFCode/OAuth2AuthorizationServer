@@ -35,9 +35,9 @@ public class SequenceNumberConverter implements AttributeConverter<String,String
             // if(  !s.matches("E?\\d+"))
             //     throw new NumberFormatException(s);
 
-            String data =  Base64.getEncoder().encodeToString( RSAConfigurer.encrypt(s.getBytes(),rsaCredentials.getPrivateKey()) );
+           // String data =  Base64.getEncoder().encodeToString( RSAConfigurer.encrypt(s.getBytes(),rsaCredentials.getPrivateKey()) );
 //            System.out.println(data);
-            return data;
+            return s;
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
@@ -49,13 +49,13 @@ public class SequenceNumberConverter implements AttributeConverter<String,String
 //        System.out.println("Retornando  Account number: " + s);
         if( Strings.isBlank(s)) return null;
         try {
-            String numberAccount = new String( RSAConfigurer.descript(Base64.getDecoder().decode(s),rsaCredentials.getPublicKey()) );
+         //   String numberAccount = new String( RSAConfigurer.descript(Base64.getDecoder().decode(s),rsaCredentials.getPublicKey()) );
 
             // if(  !numberAccount.matches("\\d+") )
             // if(  !s.matches("E?\\d+"))
             //     throw new NumberFormatException(s);
 
-            return  numberAccount;
+            return  s;
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;

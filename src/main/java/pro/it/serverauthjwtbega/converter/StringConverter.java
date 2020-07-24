@@ -32,9 +32,9 @@ public class StringConverter implements AttributeConverter<String,String> {
         // System.out.println("convertendo : " + s);
         if( Strings.isBlank(s)) return null;
         try {
-            String data =  Base64.getEncoder().encodeToString( RSAConfigurer.encrypt(s.getBytes(),rsaCredentials.getPrivateKey()) );
+        //    String data =  Base64.getEncoder().encodeToString( RSAConfigurer.encrypt(s.getBytes(),rsaCredentials.getPrivateKey()) );
 //            System.out.println(data);
-            return data;
+            return s;
         } catch (Exception ex) {
             System.err.println(ex.getLocalizedMessage());
             return null;
@@ -48,7 +48,8 @@ public class StringConverter implements AttributeConverter<String,String> {
         if( Strings.isBlank(s)) return null;
         try {
     //        if(Strings.isBlank(s)) throw  new NullPointerException();
-            return  new String( RSAConfigurer.descript(Base64.getDecoder().decode(s),rsaCredentials.getPublicKey()));
+           // return  new String( RSAConfigurer.descript(Base64.getDecoder().decode(s),rsaCredentials.getPublicKey()));
+           return s;
         } catch (Exception ex){
             System.err.println(ex.getLocalizedMessage());
             ex.printStackTrace();
