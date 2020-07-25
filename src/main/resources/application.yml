@@ -2,8 +2,8 @@ api:
   prefix: /api
   version: v1
   sendgrid:
-      key: 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
-      from: esaldinofonseca@gmail.com
+      key: 
+      from: 
 spring:
   application:
     name: ProWallet

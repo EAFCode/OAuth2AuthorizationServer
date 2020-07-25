@@ -34,7 +34,7 @@
                 <td
                         th:text="${app.clientSecret}">client_secret</td>
                 <td><a class="btn btn-danger" href="#"
-                       th:href="@{/oauth2/clients/remove(client_id=${app.clientId})}">Delete</a>
+                       th:href="@{/oauth2/remove(client_id=${app.clientId})}">Delete</a>
                 </td>
             </tr>
         </table>
